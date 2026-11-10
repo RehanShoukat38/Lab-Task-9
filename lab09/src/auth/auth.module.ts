@@ -10,7 +10,7 @@ import { AuthGuard } from '../common/guards/auth.guard';
     forwardRef(() => UsersModule),
     JwtModule.register({
       secret: 'jwt-secret-key-lab09-cs301l',
-      signOptions: { expiresIn: '1h' },
+      signOptions: { expiresIn: '24h' },
     }),
   ],
   controllers: [AuthController],
