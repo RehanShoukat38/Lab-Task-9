@@ -1,0 +1,772 @@
+[
+  {
+    "task": "Task 1 - Security Headers",
+    "endpoint": "POST /auth/login",
+    "status": 200,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "242",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"f2-9clzNaxXVEjLtZHEgsVg4klTuh0\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "6b1d424f-d4a8-4af5-a034-62cc8d6e8c50",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiYWxpY2VAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsIm5hbWUiOiJBbGljZSBPd25lciIsImlhdCI6MTc5NDMxNzU0NiwiZXhwIjoxNzk0MzIxMTQ2fQ.FsxFRnmNIgGRG8qBtXiAuzJA24TRJkpcf1CuY4bOyXk"
+    }
+  },
+  {
+    "task": "Task 1 - ValidationPipe Whitelist & Forbid",
+    "endpoint": "POST /auth/register (with isAdmin: true)",
+    "status": 400,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "88",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"58-EYMM4JjPU5mHLuAIfjqOIhjlM34\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "f9a7953e-a2f6-4484-8248-80eb0c160082",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": [
+        "property isAdmin should not exist"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "task": "Task 2 - 6 Tags Validation",
+    "endpoint": "POST /notes (6 tags)",
+    "status": 400,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "97",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"61-LZbMuNU0qkUcz193ADfEY8KU29U\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "86646a33-92ec-4e78-af60-fb954f34ad37",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": [
+        "tags array must contain at most 5 elements"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "task": "Task 2 - Tag Length Validation",
+    "endpoint": "POST /notes (tag > 20 chars)",
+    "status": 400,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "93",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"5d-k4h5xaQbJRbLhsdY0pboRo9ZaX0\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "fad7ca75-30bf-4104-b911-761bee349aaa",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": [
+        "each tag must not exceed 20 characters"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "task": "Task 2 - PATCH Note by Owner",
+    "endpoint": "PATCH /notes/1",
+    "status": 200,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "125",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"7d-uTeAgKSyE1DhnGicnlOwQGUA12U\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "89f62a09-b838-40a2-b969-5b6a1cfe5b20",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "id": 1,
+      "title": "New",
+      "content": "Discuss system architecture and requirements.",
+      "tags": [
+        "meeting",
+        "architecture"
+      ],
+      "userId": 2
+    }
+  },
+  {
+    "task": "Task 2 - PATCH Note by Non-Owner",
+    "endpoint": "PATCH /notes/1 (by Bob)",
+    "status": 403,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "97",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"61-5cbW3YTLr2gF3mFlgQOM75uZ1Ck\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "aea4e3bd-4a98-4564-9946-a5979aa5e147",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": "You do not have permission to update this note",
+      "error": "Forbidden",
+      "statusCode": 403
+    }
+  },
+  {
+    "task": "Task 3 - Request ID Header",
+    "endpoint": "GET /notes",
+    "status": 200,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "388",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"184-YlW1HHvx+A9vh9Dt3KdFz7mj+Xs\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "14f88f18-30ec-4a39-ac63-05c248ebd67f",
+      "x-xss-protection": "0"
+    },
+    "body": [
+      {
+        "id": 3,
+        "title": "API Security Checklist",
+        "content": "Review helmet, CORS, and DTO validation.",
+        "tags": [
+          "security",
+          "audit"
+        ],
+        "userId": 2
+      },
+      {
+        "id": 2,
+        "title": "Backend Roadmap",
+        "content": "Plan NestJS modules, pipes, and guards.",
+        "tags": [
+          "planning",
+          "nestjs"
+        ],
+        "userId": 2
+      },
+      {
+        "id": 1,
+        "title": "New",
+        "content": "Discuss system architecture and requirements.",
+        "tags": [
+          "meeting",
+          "architecture"
+        ],
+        "userId": 2
+      }
+    ]
+  },
+  {
+    "task": "Task 4 - Default Ascending",
+    "endpoint": "GET /notes",
+    "status": 200,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "388",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"184-YlW1HHvx+A9vh9Dt3KdFz7mj+Xs\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "08a13b27-d4a8-4eba-8062-14c1f28e3562",
+      "x-xss-protection": "0"
+    },
+    "body": [
+      {
+        "id": 3,
+        "title": "API Security Checklist",
+        "content": "Review helmet, CORS, and DTO validation.",
+        "tags": [
+          "security",
+          "audit"
+        ],
+        "userId": 2
+      },
+      {
+        "id": 2,
+        "title": "Backend Roadmap",
+        "content": "Plan NestJS modules, pipes, and guards.",
+        "tags": [
+          "planning",
+          "nestjs"
+        ],
+        "userId": 2
+      },
+      {
+        "id": 1,
+        "title": "New",
+        "content": "Discuss system architecture and requirements.",
+        "tags": [
+          "meeting",
+          "architecture"
+        ],
+        "userId": 2
+      }
+    ]
+  },
+  {
+    "task": "Task 4 - Explicit Descending (case-insensitive)",
+    "endpoint": "GET /notes?order=DESC",
+    "status": 200,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "388",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"184-ofJwTP9Cf/1OTtjxTaCevdO5yEU\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "44bb05d7-a2ce-4f33-b1b1-3429da0587a9",
+      "x-xss-protection": "0"
+    },
+    "body": [
+      {
+        "id": 1,
+        "title": "New",
+        "content": "Discuss system architecture and requirements.",
+        "tags": [
+          "meeting",
+          "architecture"
+        ],
+        "userId": 2
+      },
+      {
+        "id": 2,
+        "title": "Backend Roadmap",
+        "content": "Plan NestJS modules, pipes, and guards.",
+        "tags": [
+          "planning",
+          "nestjs"
+        ],
+        "userId": 2
+      },
+      {
+        "id": 3,
+        "title": "API Security Checklist",
+        "content": "Review helmet, CORS, and DTO validation.",
+        "tags": [
+          "security",
+          "audit"
+        ],
+        "userId": 2
+      }
+    ]
+  },
+  {
+    "task": "Task 4 - Invalid Sort Order",
+    "endpoint": "GET /notes?order=random",
+    "status": 400,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "78",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:26 GMT",
+      "etag": "W/\"4e-wSVsNwn1kgu7ODbppkoUS8hafSU\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "6b7001b3-c170-4202-a267-a82e6c859db1",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": "order must be asc or desc",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "task": "Task 5 - Change Password No Token",
+    "endpoint": "POST /auth/change-password (no token)",
+    "status": 401,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "85",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"55-lD2WFk/Rt4j0ZjeSMHNPXXzkENI\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "e30287f1-45f1-46aa-a8cf-fd475f8b4a8a",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": "Authorization header is missing",
+      "error": "Unauthorized",
+      "statusCode": 401
+    }
+  },
+  {
+    "task": "Task 5 - Wrong Current Password",
+    "endpoint": "POST /auth/change-password (wrong current)",
+    "status": 401,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "83",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"53-0WJkQQ6wiCvl4rSrCCTmexDtEis\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "f6dd4a6f-4069-4ac3-820c-74b0502fc0e1",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": "Current password is incorrect",
+      "error": "Unauthorized",
+      "statusCode": 401
+    }
+  },
+  {
+    "task": "Task 5 - Weak New Password",
+    "endpoint": "POST /auth/change-password (weak newPassword)",
+    "status": 400,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "173",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"ad-br9BCsy5nR3yCyvCf2R8Po7v9WU\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "a6aa01ea-0658-4f83-87a2-50d9a1650a05",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": [
+        "newPassword must contain at least one uppercase letter and one number",
+        "newPassword must be at least 8 characters long"
+      ],
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "task": "Task 5 - Same Password Rejection",
+    "endpoint": "POST /auth/change-password (same newPassword)",
+    "status": 400,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "105",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"69-dEJYKr82ISj8bhdzoLjcQg9ijns\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "12773761-1035-4e82-8f1d-2cd330fcc706",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": "New password must be different from current password",
+      "error": "Bad Request",
+      "statusCode": 400
+    }
+  },
+  {
+    "task": "Task 5 - Valid Password Update",
+    "endpoint": "POST /auth/change-password",
+    "status": 200,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "30",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"1e-lakmr+DKqfX/l24uCPnpB/kr9GQ\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "8bcd3ecb-506f-44c9-9d5f-e604b44dc646",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": "Password updated"
+    }
+  },
+  {
+    "task": "Task 5 - Login with Old Password",
+    "endpoint": "POST /auth/login (old password)",
+    "status": 401,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "79",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"4f-9E4+VrHwuCO3fvv9JZS1TuLe34s\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "0cffa1ed-5a79-4178-a500-9b50ea0f9d45",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": "Invalid email or password",
+      "error": "Unauthorized",
+      "statusCode": 401
+    }
+  },
+  {
+    "task": "Task 5 - Login with New Password",
+    "endpoint": "POST /auth/login (new password)",
+    "status": 200,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "246",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"f6-xR5aTsKk2HGTaT60bNugk+vt2NU\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "6d716149-925e-4465-91cd-c5e73e7594e8",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoiY2hhcmxpZUBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwibmFtZSI6IkNoYXJsaWUgVGVzdCIsImlhdCI6MTc5NDMxNzU0NywiZXhwIjoxNzk0MzIxMTQ3fQ.sk_bJTu5ouBda6PVlNnDzNR7ge_dpDJHKL2O7jB-kEE"
+    }
+  },
+  {
+    "task": "Task 6 - Users List Without Token",
+    "endpoint": "GET /users (no token)",
+    "status": 401,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "85",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"55-lD2WFk/Rt4j0ZjeSMHNPXXzkENI\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "8141f071-200f-4e20-b398-fd315396bc60",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": "Authorization header is missing",
+      "error": "Unauthorized",
+      "statusCode": 401
+    }
+  },
+  {
+    "task": "Task 6 - Users List by Normal User",
+    "endpoint": "GET /users (by Bob)",
+    "status": 403,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "119",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"77-yM50OomryaRrIjzn2PCLHm9eqWs\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "c4b69600-9d9b-4a5d-a8d8-fa42213cd198",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "message": "Forbidden: You do not have the required role to access this resource",
+      "error": "Forbidden",
+      "statusCode": 403
+    }
+  },
+  {
+    "task": "Task 6 - Users List by Admin",
+    "endpoint": "GET /users (by Admin)",
+    "status": 200,
+    "headers": {
+      "access-control-allow-origin": "http://localhost:5173",
+      "connection": "keep-alive",
+      "content-length": "289",
+      "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+      "content-type": "application/json; charset=utf-8",
+      "cross-origin-opener-policy": "same-origin",
+      "cross-origin-resource-policy": "same-origin",
+      "date": "Tue, 10 Nov 2026 13:32:27 GMT",
+      "etag": "W/\"121-e6Zd+R0jDiMKxQbA0w4w80qlbjs\"",
+      "keep-alive": "timeout=5",
+      "origin-agent-cluster": "?1",
+      "referrer-policy": "no-referrer",
+      "strict-transport-security": "max-age=15552000; includeSubDomains",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "off",
+      "x-download-options": "noopen",
+      "x-frame-options": "SAMEORIGIN",
+      "x-permitted-cross-domain-policies": "none",
+      "x-request-id": "42685079-e2b5-4024-8383-c7f5ac8af5fa",
+      "x-xss-protection": "0"
+    },
+    "body": [
+      {
+        "id": 1,
+        "name": "Admin User",
+        "email": "admin@example.com",
+        "role": "admin"
+      },
+      {
+        "id": 2,
+        "name": "Alice Owner",
+        "email": "alice@example.com",
+        "role": "user"
+      },
+      {
+        "id": 3,
+        "name": "Bob Normal",
+        "email": "bob@example.com",
+        "role": "user"
+      },
+      {
+        "id": 4,
+        "name": "Charlie Test",
+        "email": "charlie@example.com",
+        "role": "user"
+      }
+    ]
+  }
+]

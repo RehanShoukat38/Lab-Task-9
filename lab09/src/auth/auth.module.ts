@@ -1,0 +1,20 @@
+import { Module, forwardRef } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt';
+import { AuthService } from './auth.service';
+import { AuthController } from './auth.controller';
+import { UsersModule } from '../users/users.module';
+import { AuthGuard } from '../common/guards/auth.guard';
+
+@Module({
+  imports: [
+    forwardRef(() => UsersModule),
+    JwtModule.register({
+      secret: 'jwt-secret-key-lab09-cs301l',
+      signOptions: { expiresIn: '1h' },
+    }),
+  ],
+  controllers: [AuthController],
+  providers: [AuthService, AuthGuard],
+  exports: [AuthService, JwtModule, AuthGuard],
+})
+export class AuthModule {}
